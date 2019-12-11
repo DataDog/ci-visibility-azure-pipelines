@@ -1,0 +1,1 @@
+By subscribing to this product you agree to terms and conditions outlined in the product [End User License Agreement (EULA).](https://d7umqicpi7263.cloudfront.net/eula/product/fe0da4d3-3292-41c6-8e46-8ecad5d378ae/c4d7b35c-b1b0-4532-92d5-3a9d8c1afefc.pdf)
