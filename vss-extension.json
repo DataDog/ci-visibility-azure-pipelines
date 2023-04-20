@@ -1,0 +1,118 @@
+{
+    "manifestVersion": 1,
+    "id": "datadog-ci-visibility",
+    "version": "0.0.2",
+    "name": "Datadog CI Visibility",
+    "publisher": "AdrianLC",
+    "public": false,
+    "description": "Send Azure DevOps Service Hooks to Datadog, the monitoring and analytics platform for modern cloud environments",
+    "targets": [
+        {
+            "id": "Microsoft.VisualStudio.Services"
+        }
+    ],
+    "icons": {
+        "default": "images/service-logo.png"
+    },
+    "categories": [
+        "Azure Pipelines"
+    ],
+    "tags": [
+        "monitoring",
+        "datadog",
+        "events",
+        "dashboard",
+        "alert"
+    ],
+
+    "content": {
+        "details": {
+            "path": "overview.md"
+        }
+    },
+    "links": {
+        "getstarted": {
+            "uri": "https://docs.microsoft.com/en-us/azure/devops/service-hooks/services/datadog?view=azure-devops"
+        },
+        "learn": {
+            "uri": "https://www.docs.datadoghq.com"
+        },
+        "support": {
+            "uri": "https://www.datadoghq.com/support"
+        },
+	    "privacypolicy": {
+            "uri": "https://www.datadoghq.com/legal/privacy"
+        },
+        "license": {
+            "uri": "https://www.datadoghq.com/legal/msa"
+        }
+    },
+    "branding": {
+        "color": "rgb(120, 71, 166)",
+        "theme": "dark"
+    },
+
+    "galleryFlags": [
+        "Preview"
+    ],
+
+    "contributions": [
+        {
+            "id": "consumer",
+            "type": "ms.vss-servicehooks.consumer",
+            "targets": [
+                "ms.vss-servicehooks.consumers"
+            ],
+            "properties": {
+                "id": "datadog-ci-visibility",
+                "name": "Datadog CI Visibility",
+                "description": "Datadog CI Visibility",
+                "informationUrl": "https://www.datadoghq.com/product/ci-cd-monitoring/",
+                "inputDescriptors": [
+                    {
+                        "id": "datadog_site",
+                        "isRequired": true,
+                        "name": "Datadog Site",
+                        "description": "Datadog Site to send data to",
+                        "valueHint": "datadoghq.com",
+                        "inputMode": "textbox"
+                    },
+                    {
+                        "id": "api_key",
+                        "isRequired": true,
+                        "name": "Datadog API Key",
+                        "description": "Datadog API Key",
+                        "inputMode": "passwordBox",
+                        "validation": {
+                            "dataType": "string",
+                            "isRequired": true,
+                            "minLength": 32
+                          }
+                    }
+                ],
+                "actions": [
+                    {
+                        "id": "performAction",
+                        "name": "Send data to Datadog",
+                        "description": "Send data to Datadog CI Visibility",
+                        "supportedEventTypes": [
+                            "ms.vss-pipelines.run-state-changed-event",
+                            "ms.vss-pipelines.stage-state-changed-event",
+                            "ms.vss-pipelines.job-state-changed-event"
+                        ],
+                        "publishEvent": {
+                            "url": "https://webhook-intake.{{datadog_site}}/api/v2/webhook",
+                            "httpHeaders": [
+                                "DD-API-KEY:{{api_key}}"
+                            ],
+                            "resourceDetailsToSend": "all",
+                            "messagesToSend": "all",
+                            "detailedMessagesToSend": "all"
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+
+}
