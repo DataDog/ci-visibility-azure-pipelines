@@ -20,8 +20,8 @@ AZURE_EXTENSION_API_ROOT = 'https://extmgmt.dev.azure.com'
 _MAX_RETRIES = Retry(total=5, backoff_factor=0.1)
 
 
-EXTENSION_PUBLISHER = 'AdrianLC'  # TODO: replace with datadog
-EXTENSION_NAME = 'datadog-ci-visibility'
+EXTENSION_PUBLISHER = 'datadog'
+EXTENSION_NAME = 'ci-visibility'
 EXTENSION_ID = '/'.join((EXTENSION_PUBLISHER, EXTENSION_NAME))
 CONSUMER_ID = '.'.join((EXTENSION_PUBLISHER, EXTENSION_NAME, 'consumer'))
 

@@ -1,10 +1,10 @@
 {
     "manifestVersion": 1,
-    "id": "ci-visibility",
-    "version": "0.0.2",
-    "name": "Datadog CI Visibility",
+    "id": "ci-visibility-dev",
+    "version": "0.0.1",
+    "name": "Datadog CI Visibility DEV",
     "publisher": "datadog",
-    "public": true,
+    "public": false,
     "description": "Quickly connect your Azure Pipelines to Datadog to gain comprehensive visibility into the performance of your pipelines, stages, and jobs",
     "targets": [
         {
@@ -60,6 +60,9 @@
         "color": "rgb(120, 71, 166)",
         "theme": "dark"
     },
+    "galleryFlags": [
+        "Preview"
+    ],
 
     "contributions": [
         {
