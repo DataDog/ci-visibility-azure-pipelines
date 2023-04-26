@@ -1,11 +1,11 @@
 {
     "manifestVersion": 1,
     "id": "datadog-ci-visibility",
-    "version": "0.0.5",
+    "version": "0.0.8",
     "name": "Datadog CI Visibility",
     "publisher": "AdrianLC",
     "public": false,
-    "description": "Send Azure DevOps Service Hooks to Datadog, the monitoring and analytics platform for modern cloud environments",
+    "description": "Quickly connect your Azure Pipelines to Datadog to gain comprehensive visibility into the performance of your pipelines, stages, and jobs",
     "targets": [
         {
             "id": "Microsoft.VisualStudio.Services"
@@ -31,8 +31,11 @@
         }
     },
     "links": {
+        "home": {
+            "uri": "https://www.datadoghq.com/product/ci-cd-monitoring/"
+        },
         "getstarted": {
-            "uri": "https://docs.microsoft.com/en-us/azure/devops/service-hooks/services/datadog?view=azure-devops"
+            "uri": "https://docs.datadoghq.com/continuous_integration/pipelines/azure/"
         },
         "learn": {
             "uri": "https://www.docs.datadoghq.com"
@@ -45,7 +48,14 @@
         },
         "license": {
             "uri": "https://www.datadoghq.com/legal/msa"
+        },
+        "repository": {
+            "uri": "https://github.com/DataDog/ci-visibility-azure-pipelines"
         }
+    },
+    "repository": {
+        "type": "git",
+        "uri": "https://github.com/DataDog/ci-visibility-azure-pipelines"
     },
     "branding": {
         "color": "rgb(120, 71, 166)",
