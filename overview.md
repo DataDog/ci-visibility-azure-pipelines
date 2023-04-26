@@ -16,8 +16,7 @@ Install this [Datadog CI Visibility for Azure Pipelines extension](https://marke
 
 After the extension is installed, you can use it from the [Service hooks](https://learn.microsoft.com/en-us/azure/devops/service-hooks/overview?view=azure-devops) section within your Project Settings in Azure Pipelines.
 
-**All 3 supported types of events are required** and must be enabled individually. Leaving one the events out will lead to an incomplete installation and unexpected behaviour in Datadog!
-The events are:
+**All 3 supported types of events are required** and must be enabled individually. If one or more events are not enabled, the installation will be incomplete and lead to unexpected behavior in Datadog. The events are:
 
 - run state changed
 - run stage state changed
