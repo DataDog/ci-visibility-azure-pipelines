@@ -19,7 +19,7 @@ AZURE_EXTENSION_API_ROOT = 'https://extmgmt.dev.azure.com'
 _MAX_RETRIES = Retry(total=5, backoff_factor=0.1)
 
 
-EXTENSION_PUBLISHER = 'datadog'
+EXTENSION_PUBLISHER = 'Datadog'
 EXTENSION_NAME = 'ci-visibility'
 EXTENSION_ID = '/'.join((EXTENSION_PUBLISHER, EXTENSION_NAME))
 CONSUMER_ID = '.'.join((EXTENSION_PUBLISHER, EXTENSION_NAME, 'consumer'))
@@ -141,7 +141,9 @@ class AzureClient:
             },
             'consumerInputs': self.consumer_inputs
         }
-        response = self.session.post(AZURE_API_ROOT + f'/{self.org}/_apis/hooks/subscriptions', json=data)
+        response = self.session.post(AZURE_API_ROOT + f'/{self.org}/_apis/hooks/subscriptions', json=data,
+            params={'api-version': '7.0'}
+        )
         response.raise_for_status()
         return response.json()
 
@@ -227,7 +229,7 @@ if __name__ == '__main__':
             else:
                 client.replace_subscription(project, event, current_subscription['id'])
                 logger.debug('Hook %s for project %s updated', event, project['name'])
-        logger.info('%s done', project['name'])
+        logger.info('%s hook: %s installed', project['name'], event)
 
     with futures.ThreadPoolExecutor(max_workers=args.threads) as executor:
         list(executor.map(lambda p: handle_subscription(*p), product(projects, WEBHOOK_EVENTS)))

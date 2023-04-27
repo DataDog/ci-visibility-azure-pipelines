@@ -34,7 +34,26 @@ The script only needs python3 and the requests package. For more info:
 ```
 service_hooks.py --help
 ```
-​
+
+Example to enable for all the projects:
+```
+./service_hooks.py \
+    --az-user "John Doe" \
+    --dd-api-key ******************** \
+    --az-org datadoghq \
+    --az-token ********************** \
+    --threads 4
+```
+
+Example to enable only in a couple of projects:
+```
+./service_hooks.py \
+    --az-user "John Doe" \
+    --dd-api-key ******************** \
+    --az-org datadoghq \
+    --az-token ********************** \
+    projectName1 projectName2
+```
 ​
 ## Other resources
 - [Datadog documentation](https://docs.datadoghq.com/continuous_integration/pipelines/azure/)
