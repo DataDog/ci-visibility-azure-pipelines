@@ -42,20 +42,20 @@ service_hooks.py --help
 Example to enable for all the projects:
 ```
 ./service_hooks.py \
-    --az-user "John Doe" \
     --dd-api-key ******************** \
-    --az-org datadoghq \
+    --az-user "John Doe" \
     --az-token ********************** \
+    --az-org datadoghq \
     --threads 4
 ```
 
 Example to enable only in a couple of projects:
 ```
 ./service_hooks.py \
-    --az-user "John Doe" \
     --dd-api-key ******************** \
-    --az-org datadoghq \
+    --az-user "John Doe" \
     --az-token ********************** \
+    --az-org datadoghq \
     projectName1 projectName2
 ```
 ​
