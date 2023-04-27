@@ -5,10 +5,9 @@ import os
 import sys
 from concurrent import futures
 from itertools import product
-from urllib3.util.retry import Retry
 
 import requests
-from requests.adapters import HTTPAdapter
+from requests.adapters import HTTPAdapter, Retry
 
 
 logger = logging.getLogger(__name__)

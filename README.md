@@ -34,7 +34,7 @@ If you want to enable the hooks for many or all your Azure projects we provide a
 - Azure DevOps [API Token](https://learn.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&tabs=Windows#create-a-pat)
 - Azure DevOps organization name
 
-For more info:
+The script only needs python3 and the requests package. For more info:
 ```
 service_hooks.py --help
 ```
