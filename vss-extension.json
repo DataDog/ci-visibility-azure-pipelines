@@ -1,7 +1,7 @@
 {
     "manifestVersion": 1,
     "id": "ci-visibility",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "name": "Datadog CI Visibility",
     "publisher": "datadog",
     "public": true,
@@ -108,7 +108,8 @@
                         "publishEvent": {
                             "url": "https://webhook-intake.{{datadog_site}}/api/v2/webhook",
                             "headers": [
-                                "DD-API-KEY:{{api_key}}"
+                                "DD-API-KEY:{{api_key}}",
+                                "DD-CI-PROVIDER-AZURE:true"
                             ],
                             "resourceDetailsToSend": "all",
                             "messagesToSend": "all",

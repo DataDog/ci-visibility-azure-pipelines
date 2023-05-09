@@ -1,7 +1,7 @@
 {
     "manifestVersion": 1,
     "id": "ci-visibility-dev",
-    "version": "0.0.1",
+    "version": "0.0.5",
     "name": "Datadog CI Visibility DEV",
     "publisher": "datadog",
     "public": false,
@@ -73,8 +73,8 @@
             ],
             "properties": {
                 "id": "datadog-ci-visibility",
-                "name": "Datadog CI Visibility",
-                "description": "Datadog CI Visibility",
+                "name": "Datadog CI Visibility DEV",
+                "description": "Datadog CI Visibility DEV",
                 "informationUrl": "https://www.datadoghq.com/product/ci-cd-monitoring/",
                 "inputDescriptors": [
                     {
@@ -111,7 +111,8 @@
                         "publishEvent": {
                             "url": "https://webhook-intake.{{datadog_site}}/api/v2/webhook",
                             "headers": [
-                                "DD-API-KEY:{{api_key}}"
+                                "DD-API-KEY:{{api_key}}",
+                                "DD-CI-PROVIDER-AZURE:true"
                             ],
                             "resourceDetailsToSend": "all",
                             "messagesToSend": "all",
