@@ -1,7 +1,7 @@
 {
     "manifestVersion": 1,
     "id": "ci-visibility",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "name": "Datadog CI Visibility",
     "publisher": "datadog",
     "public": true,
@@ -76,11 +76,16 @@
                 "inputDescriptors": [
                     {
                         "id": "datadog_site",
-                        "isRequired": true,
                         "name": "Datadog Site",
                         "description": "Datadog Site to send data to",
-                        "valueHint": "datadoghq.com",
-                        "inputMode": "textbox"
+                        "inputMode": "textbox",
+                        "values": {
+                            "defaultValue": "datadoghq.com"
+                        },
+                        "validation": {
+                            "dataType": "string",
+                            "isRequired": true
+                        }
                     },
                     {
                         "id": "api_key",
@@ -88,11 +93,12 @@
                         "name": "Datadog API Key",
                         "description": "Datadog API Key",
                         "inputMode": "passwordBox",
+                        "isConfidential": true,
                         "validation": {
                             "dataType": "string",
                             "isRequired": true,
                             "minLength": 32
-                          }
+                        }
                     }
                 ],
                 "actions": [
