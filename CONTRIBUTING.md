@@ -1,7 +1,5 @@
 # Contributing
 
-----------
-
 First of all, thanks for contributing!
 
 This document provides some basic guidelines for contributing to this repository.
@@ -12,17 +10,12 @@ To propose improvements, feel free to submit a PR or open an Issue.
 - [Documentation on how to package the extension for a new release](https://learn.microsoft.com/en-us/azure/devops/extend/publish/overview?toc=%2Fazure%2Fdevops%2Fmarketplace-extensibility%2Ftoc.json&view=azure-devops#package-your-extension) 
 
 
-## Setup your developer Environment
-
-----------
+## Setup your Developer Environment
 
 For the service_hooks.py script, only python3 and the requests package are needed.
 
 
-
-## Releasing updates (Project maintainers)
-----------
-
+## Releasing updates (Project maintainers)
 
 For maintainers of the project, in order to release a new version of the extension the [tfx-cli](https://learn.microsoft.com/en-us/azure/devops/extend/publish/command-line?view=azure-devops#acquire-the-cross-platform-cli-for-azure-devops) is needed: 
 
@@ -47,9 +40,7 @@ npx tfx-cli extension create
 And upload it again through the [Azure Marketplace](https://marketplace.visualstudio.com/manage/publishers/datadog) to the public version of the extension.
 
 
-## Submitting Issues
-
-----------
+## Submit Issues
 
 Many great ideas for new features come from the community, and we'd be happy to consider yours!
 
@@ -61,9 +52,8 @@ with the details about what you'd like to see. At a minimum, please provide:
 - Links to any important resources (e.g. Github repos, websites, screenshots,
   specifications, diagrams).
 
-## Found a bug?
 
-----------
+## Found a bug?
 
 You can submit bug reports concerning the Datadog CI Visibility Azure DevOps Extension by
 opening a Github issue. Please provide:
@@ -78,9 +68,8 @@ If at all possible, also provide:
 
 - An explanation of what causes the bug and/or how it can be fixed.
 
-## Have a patch?
 
-----------
+## Have a patch?
 
 We welcome code contributions to the extension, which you can submit as a pull request.
 Before you submit a PR, make sure another Issue or PR with the same goal doesn't
@@ -103,5 +92,3 @@ requests must:
 
 Make sure that your code is clean and readable, and that your commits are small and
 atomic, with a proper commit message.
-
-
