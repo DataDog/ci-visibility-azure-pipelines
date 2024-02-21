@@ -1,7 +1,7 @@
 {
     "manifestVersion": 1,
     "id": "ci-visibility",
-    "version": "0.1.0",
+    "version": "0.0.7",
     "name": "Datadog CI Visibility",
     "publisher": "datadog",
     "public": true,
