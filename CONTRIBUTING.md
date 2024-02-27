@@ -26,7 +26,7 @@ npm install -g tfx-cli
 We have 2 versions of the `vss-extension.json` file so that we can test changes in a private version of the extension before releasing them for everyone. Make the changes first in `vss-extension-dev.json`. Keep in mind every small change needs to increase the version number at the top. Package a new version with:
 
 ```
-npx tfx-cli extension create --manifest ./vss-extension-dev.json
+npx tfx-cli extension create --manifests ./vss-extension-dev.json
 ```
 
 Then upload the generated file through the [Azure Marketplace](https://marketplace.visualstudio.com/manage/publishers/datadog). If you don't have permissions for this you need to reach out to a maintainer that has them.
