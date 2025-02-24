@@ -31,6 +31,7 @@ WEBHOOK_EVENTS = (
     'ms.vss-pipelines.job-state-changed-event',
     "ms.vss-pipelinechecks-events.approval-pending",
     "ms.vss-pipelinechecks-events.approval-completed",
+    "build.complete"
 )
 
 
