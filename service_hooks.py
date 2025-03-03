@@ -31,6 +31,7 @@ WEBHOOK_EVENTS = (
     'ms.vss-pipelines.job-state-changed-event',
     "ms.vss-pipelinechecks-events.approval-pending",
     "ms.vss-pipelinechecks-events.approval-completed",
+    "build.complete"
 )
 
 
@@ -131,9 +132,9 @@ class AzureClient:
         }
         return subscriptions
 
-    def create_subscription(self, project, event_type):
+    def create_subscription(self, project, event_type, publisher_id):
         data = {
-            'publisherId': 'pipelines',
+            'publisherId': publisher_id,
             'eventType': event_type,
             # 'resourceVersion': '1.0-preview.1',
             'consumerId': CONSUMER_ID,
@@ -149,10 +150,10 @@ class AzureClient:
         response.raise_for_status()
         return response.json()
 
-    def replace_subscription(self, project, event_type, subscription_id):
+    def replace_subscription(self, project, event_type, subscription_id, publisher_id):
         params = {'subscriptionId': subscription_id}
         data = {
-            'publisherId': 'pipelines',
+            'publisherId': publisher_id,
             'eventType': event_type,
             # 'resourceVersion': '1.0-preview.1',
             'consumerId': CONSUMER_ID,
@@ -223,15 +224,20 @@ if __name__ == '__main__':
         current_subscription = subscriptions[event].get(project['id'])
         if args.uninstall and current_subscription:
             client.delete_subscription(current_subscription['id'])
-            logger.debug('Hook %s for project %s deleted', event, project['name'])
+            logger.info('Hook %s for project %s deleted', event, project['name'])
         else:
             if not current_subscription:
-                client.create_subscription(project, event)
-                logger.debug('Hook %s for project %s created', event, project['name'])
+                if event == 'build.complete':
+                    client.create_subscription(project, event, 'tfs')
+                else:
+                    client.create_subscription(project, event, 'pipelines')
+                logger.info('Hook %s for project %s created', event, project['name'])
             else:
-                client.replace_subscription(project, event, current_subscription['id'])
-                logger.debug('Hook %s for project %s updated', event, project['name'])
-        logger.info('%s hook: %s installed', project['name'], event)
+                if event == 'build.complete':
+                    client.replace_subscription(project, event, current_subscription['id'], 'tfs')
+                else:
+                    client.replace_subscription(project, event, current_subscription['id'], 'pipelines')
+                logger.info('Hook %s for project %s updated', event, project['name'])
 
     with futures.ThreadPoolExecutor(max_workers=args.threads) as executor:
         list(executor.map(lambda p: handle_subscription(*p), product(projects, WEBHOOK_EVENTS)))

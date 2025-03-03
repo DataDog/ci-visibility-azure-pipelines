@@ -1,7 +1,7 @@
 {
     "manifestVersion": 1,
     "id": "ci-visibility-dev",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "name": "Datadog CI Visibility DEV",
     "publisher": "datadog",
     "public": false,
@@ -114,7 +114,8 @@
                             "ms.vss-pipelines.stage-state-changed-event",
                             "ms.vss-pipelines.job-state-changed-event",
                             "ms.vss-pipelinechecks-events.approval-pending",
-                            "ms.vss-pipelinechecks-events.approval-completed"
+                            "ms.vss-pipelinechecks-events.approval-completed",
+                            "build.complete"
                         ],
                         "publishEvent": {
                             "url": "https://webhook-intake.{{datadog_site}}/api/v2/webhook",
